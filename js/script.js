@@ -144,6 +144,7 @@ gsap.from(".features-item", {
 // AOS
 
 AOS.init({
+  disable: 'mobile',
   delay: 100,
   once: true,
   duration: 600,
