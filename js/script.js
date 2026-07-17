@@ -129,18 +129,19 @@ gsap.from(".hero-btn", {
   ease: "power3.out",
 });
 
-gsap.from(".features-item", {
-  scrollTrigger: {
-    trigger: ".features-list",
-    start: "top 80%",
-  },
-  opacity: 0,
-  y: 50,
-  duration: 0.7,
-  stagger: 0.2,
-  ease: "power2.out",
-});
-
+if (window.innerWidth > 768) {
+  gsap.from(".features-item", {
+    scrollTrigger: {
+      trigger: ".features-list",
+      start: "top 80%",
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.7,
+    stagger: 0.2,
+    ease: "power2.out",
+  });
+}
 // AOS
 
 AOS.init({
