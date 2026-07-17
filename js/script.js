@@ -7,7 +7,7 @@ const playBtnMobile = document.querySelector("#playBtnMob");
 const navBtn = document.querySelector("#burger");
 const nav = document.querySelector("#nav");
 const header = document.querySelector(".header");
-const body = document.querySelector("#body");
+const html = document.querySelector("#html");
 const navItems = document.querySelectorAll(".nav-item");
 const newsLetterForm = document.querySelector(".newsletter-form");
 const contactsForm = document.querySelector(".contacts-form");
@@ -44,7 +44,7 @@ navBtn.onclick = () => {
   navBtn.classList.toggle("active");
   nav.classList.toggle("active");
   header.classList.toggle("menu-open");
-  body.classList.toggle("overflow-hidden");
+  html.classList.toggle("overflow-hidden");
 };
 
 navItems.forEach((link) => {
@@ -52,7 +52,7 @@ navItems.forEach((link) => {
     navBtn.classList.remove("active");
     nav.classList.remove("active");
     header.classList.remove("menu-open");
-    body.classList.remove("overflow-hidden");
+    html.classList.remove("overflow-hidden");
   };
 });
 
@@ -129,7 +129,7 @@ gsap.from(".hero-btn", {
   ease: "power3.out",
 });
 
-if (window.innerWidth > 768) {
+if (window.innerWidth > 1264) {
   gsap.from(".features-item", {
     scrollTrigger: {
       trigger: ".features-list",
@@ -145,7 +145,9 @@ if (window.innerWidth > 768) {
 // AOS
 
 AOS.init({
-  disable: 'mobile',
+  disable: function () {
+    return window.innerWidth < 1264;
+  },
   delay: 100,
   once: true,
   duration: 600,
